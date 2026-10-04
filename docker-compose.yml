@@ -1,0 +1,13 @@
+services:
+  ternssh:
+    build: .
+    ports:
+      - "${PORT:-8787}:${PORT:-8787}"
+    environment:
+      PORT: "${PORT:-8787}"
+    volumes:
+      - ternssh-data:/app/.wrangler
+    restart: unless-stopped
+
+volumes:
+  ternssh-data:
